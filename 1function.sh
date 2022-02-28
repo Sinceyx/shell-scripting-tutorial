@@ -4,23 +4,24 @@
 #Created Date: Sat May 26 00:27:50 IST 2018
 #Modified Date:
 #WebSite: https://arkit.co.in
-#Author: Ankam Ravi Kumar
+#Author: xin.yu
+#OS: macOS
 # START #
 function takebackup (){
-        if [ -f $1 ]; then
-        BACKUP="/home/aravi/$(basename ${1}).$(date +%F).$$"
-        echo "Backing up $1 to ${BACKUP}"
-        cp $1 $BACKUP
+        if [ -f $1 ]
+        then
+                BACKUP="/Users/xin.yu/shell_script/$(basename ${1}).$(date +%F).$$"
+                echo "Backing up $1 to ${BACKUP}"
+                touch $BACKUP
+                cp $1 $BACKUP
         fi
 }
 
 takebackup /etc/hosts
-        if [ $? -eq 0 ]; then
+if [ $? -eq 0 ]
+then
         echo "BAckup Success"
-        fi
-function testing (){
-echo "Just TEsting Function"
-}
-
-testing
+else
+        echo "BACKUP Failed!"
+fi
 # END #
